@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Annual {% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="text-center mt-5">Annual Reports</h1>
+    <div style="height: 10px;"></div> <!-- Add space at the top -->
+    <div class="table-container mt-5">
+      <table class="table table-bordered  ">
+        <thead>
+          <tr>
+            <th>Heading</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in reports %}
+          <tr>
+            <td>{{ report.title }}</td>
+            <td><a href="{{ report.file.url }}">Download</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your footer height -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

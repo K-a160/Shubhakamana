@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Base Rate{% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="text-center mt-5">Base Rate</h1>
+    <div class="table-container mt-5">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Base Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for base_rate in base_rates %}
+          <tr>
+            <td>{{ base_rate.month }} {{ base_rate.year }}</td>
+            <td>{{ base_rate.rate }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your footer height -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Financial Services{% endblock title %}
+{% block content %}
+
+<!-- Add space for the navbar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<!-- Financial Services Section - Bootstrap Component -->
+<section class="services-section bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                <h2 class="mb-4 display-5">Financial Services</h2>
+                <p class="mb-5 lead">Explore our range of financial services tailored to your needs.</p>
+                <hr class="w-50 mx-auto mb-5 border-dark">
+            </div>
+        </div>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ service.title }}</h4>
+                        <p class="card-text">{{ service.description|safe }}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'service_detail' service.id %}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

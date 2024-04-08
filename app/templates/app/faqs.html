@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}FAQS{% endblock title %}
+{% block content %}
+
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<!-- Add space for the navbar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<section class="bg-light py-3 py-md-5">
+    <div class="container">
+        <div class="row gy-5 gy-lg-0 align-items-lg-center">
+            <div class="col-12 col-lg-6">
+                <img class="img-fluid rounded" loading="lazy" src="{% static "app/assets/images/faq-img-1.png" %}" alt="How can we help you?">
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="row justify-content-xl-end">
+                    <div class="col-12 col-xl-11">
+                        <h2 class="h1 mb-3 text-center">FAQs</h2>
+                        <p class="lead fs-4 text-secondary mb-5">We hope you have found an answer to your question. If you need any help, please search your query on our Support Center or contact us via email.</p>
+                        <div class="accordion accordion-flush" id="accordionExample">
+                            {% for faq in faqs %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                                        {{ faq.question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{ faq.answer|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

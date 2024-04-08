@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Governance | Management Teams {% endblock title %}
+{% block content %}
+
+<!-- Add space for the navbar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<!-- Team Section - Bootstrap Component -->
+<section class="team-section bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                <h2 class="mb-4 display-5">Our Management Teams</h2>
+                <p class="mb-5 lead">We are a group of innovative, experienced, and proficient teams. You will love to collaborate with us.</p>
+                <hr class="w-50 mx-auto mb-5 border-dark">
+            </div>
+        </div>
+        <div class="row">
+            {% for team in teams %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ team.image.url }}" alt="{{ team.name }}">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ team.name }}</h4>
+                        <p class="card-text text-center">{{ team.position }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<!-- Main slider -->
+<div class="w3-content w3-display-container banner-container" onmouseover="showButtons()" onmouseout="hideButtons()">
+    {% for slider in sliders %}
+        {% for image in slider.images.all %}
+            <img class="mySlides" src="{{ image.image.url }}" style="width:100%">
+        {% endfor %}
+    {% endfor %}
+
+    <!-- Manual navigation buttons -->
+    <button class="prev" onclick="plusSlides(-1)" onmousedown="changeColor(this)" onmouseup="restoreColor(this)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)" onmousedown="changeColor(this)" onmouseup="restoreColor(this)">&#10095;</button>
+</div>
+<!-- //main-slider -->
+
+
+
+
+
+     <!-- //main-slider -->
+<!-- services-Start-->
+<section class="uk-width-1-1" style="padding: 30px 0;">
+    <div class="uk-panel home-service-panel">
+        <div class="uk-grid uk-margin-large-top">
+            <div class="uk-width-medium-2-10">
+                <div class="uk-panel uk-margin-top">
+                    <h3>FINANCIAL<br>SERVICES</h3>
+                </div>
+            </div>
+            <div class="uk-width-medium-8-10 uk-grid-margin">
+                <div class="uk-grid uk-grid-divider">
+                    <div class="uk-width-medium-1-5">
+                        <div class="uk-panel service-item">
+                            <img src="{% static 'app/home/ser01.png' %}" alt="">
+                            <h6><a href="#">MERO SHAVING</a></h6>
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-5">
+                        <div class="uk-panel service-item">
+                            <img src="{% static 'app/home/ser02.png' %}" alt="">
+                            <h6><a href="#">MICRO LOAN</a></h6>
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-5">
+                        <div class="uk-panel service-item">
+                            <img src="{% static 'app/home/ser03.png' %}" alt="">
+                            <h6><a href="#">INSURANCE</a></h6>
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-5">
+                        <div class="uk-panel service-item">
+                            <img src="{% static 'app/home/ser04.png' %}" alt="">
+                            <h6><a href="#">REMITTANCE</a></h6>
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-5">
+                        <div class="uk-panel service-item">
+                            <img src="{% static 'app/home/ser05.png' %}" alt="">
+                            <h6><a href="#">LEASING</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/-End-->
+<div class="container py-md-5 pt-5">
+    <section class="w3l-midslider py-5" id="midslider">
+        <div class="row">
+            <div class="col-lg-5 order-lg-2 title-content text-left ps-lg-5 mt-lg-0 mt-5">
+                <h3 class="title-w3l mb-3">Shuvakamana Shaving & Credit Cooperative LTD.</h3>
+                {% if latest_description %}
+                <p class="mb-3">{{ latest_description.text }}</p>
+                {% else %}
+                <p class="mb-3">No description available.</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-7 order-lg-1 mid-slider-content">
+                {% if latest_image %}
+                <img src="{{ latest_image.image.url }}" class="img-fluid radius-image" alt="Latest Image" width="250">
+                {% else %}
+                <p class="mb-3">No image available.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+    <!-- Template JavaScript -->
+<!-- Template JavaScript -->
+<script src="{% static 'app/assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'app/assets/js/theme-change.js' %}"></script>
+<script src="{% static 'app/assets/js/bootstrap.min.js' %} "></script>
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function() {
+            $('.navbar-toggler').click(function() {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+
+<!--for banner -->
+    <script>
+        $(document).ready(function(){
+          $(".owl-one").owlCarousel({
+            items: 1, // Number of items to display
+            loop: true, // Infinite loop
+            autoplay: true, // Autoplay
+            autoplayTimeout: 5000, // Autoplay interval in milliseconds
+            nav: true, // Show navigation buttons
+            dots: false // Hide navigation dots
+          });
+        });
+    </script>
+    <script>
+        var slideIndex = 0;
+        var slides = document.getElementsByClassName("mySlides");
+    
+        // Initial display of slides
+        showSlides();
+    
+        // Automatic slideshow
+        var slideshowInterval = setInterval(automaticSlide, 4500);
+    
+        // Manual navigation functions
+        function plusSlides(n) {
+            clearInterval(slideshowInterval); // Stop automatic slideshow
+            slideIndex += n;
+            showSlides();
+        }
+    
+        // Automatic slideshow function
+        function automaticSlide() {
+            slideIndex++;
+            showSlides();
+        }
+    
+        function showSlides() {
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+    
+            // Hide all slides
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+    
+            // Display current slide
+            slides[slideIndex].style.display = "block";
+        }
+    
+        // Show navigation buttons on hover
+        function showButtons() {
+            var buttons = document.querySelectorAll('.prev, .next');
+            buttons.forEach(button => button.style.visibility = 'visible');
+        }
+    
+        // Hide navigation buttons when not hovering
+        function hideButtons() {
+            var buttons = document.querySelectorAll('.prev, .next');
+            buttons.forEach(button => button.style.visibility = 'hidden');
+        }
+    
+        // Change button color on click
+        function changeColor(button) {
+            button.style.backgroundColor = 'red';
+        }
+    
+        // Restore button color after click
+        function restoreColor(button) {
+            button.style.backgroundColor = '';
+        }
+    </script>
+    
+</body>
+
+</html>
+
+{% endblock %}

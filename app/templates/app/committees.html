@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Governance | Committees {% endblock title %}
+{% block content %}
+
+<!-- Add space for the navbar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="height: 100px;"></div> <!-- Adjust height according to your navbar height -->
+        </div>
+    </div>
+</div>
+
+<!-- Committee Section - Bootstrap Component -->
+<section class="team-section bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                <h2 class="mb-4 display-5">Our Committees</h2>
+                <p class="mb-5 lead">We have various committees working towards different objectives. Explore our committees and meet their members.</p>
+                <hr class="w-50 mx-auto mb-5 border-dark">
+            </div>
+        </div>
+        {% for committee in committees %}
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mb-4">{{ committee.name }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for member in committee.committeemember_set.all %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ member.image.url }}" alt="{{ member.name }}">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">{{ member.name }}</h4>
+                        <p class="card-text">{{ member.position }}</p>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

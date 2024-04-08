@@ -1,0 +1,218 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Shuvakamana | {% block title %}{% endblock title %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+   
+
+    <link rel="stylesheet" href="{% static 'app/assets/css/style-starter.css' %}">
+</head>
+<body>
+   <!-- Header -->
+<header id="site-header" class="fixed-top">
+    <div class="container">
+        <nav class="navbar ggnav navbar-expand-lg navbar-light stroke py-lg-0">
+            <a class="navbar-brand pe-xl-5 pe-lg-4" href="{% url 'home' %}">
+                <img src="{% static "app/home/logo1.png" %}" alt="Shubha Kamana Logo" style="margin-bottom: 4px;"><br>
+                <span class="w3yellow">Shubha</span>Kamana
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <a class="dropdown-item" href="{% url 'About_background' %}">Background </a>
+                            <a class="dropdown-item" href="{% url 'About_philosophy' %}">Philosophy </a>
+                            <a class="dropdown-item" href="{% url 'About_source' %}">Source of Fund </a>
+                            <a class="dropdown-item" href="{% url 'Gallery' %}">Gallery </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="govDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Governance
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="govDropdown">
+                            <a class="dropdown-item" href="{% url 'Management_teams' %}">Management Teams </a>
+                            <a class="dropdown-item" href="{% url 'Corporate_teams' %}">Corporate Teams </a>
+                            <a class="dropdown-item" href="{% url 'Committees' %}">Committee</a>
+                            <a class="dropdown-item" href="{% url 'Board_of_directors' %}">Board Of Directors </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="prodDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Product & Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="prodDropdown">
+                            <a class="dropdown-item" href="{% url 'financial_services' %}">Financial Services </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="finDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Financial Highlights
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="finDropdown">
+                            <a class="dropdown-item" href="{% url 'annual_report' %}">Annual Reports</a>
+                            <a class="dropdown-item" href="{% url 'quarterly_reports' %}">Quarterly Reports</a>
+                            <a class="dropdown-item" href="{% url 'base_rate' %}">Base Rate </a>
+                            <a class="dropdown-item" href="{% url 'agm_minutes' %}">AGM Minute </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'FAQS' %}">FAQS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'notices' %}">Notices</a>
+                    </li>                 
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <!-- //Header -->
+
+
+ <!-- Main content block -->
+ <div class="content">
+    {% block content %}
+    <!-- Your main content goes here -->
+    {% endblock %}
+</div>
+<!-- //Main content block -->
+
+
+
+
+    <!-- Footer -->
+<!--/w3l-footer-29-main-->
+<footer class="w3l-footer-29-main">
+    <div class="footer-29 py-5">
+        <div class="container py-lg-4">
+            <div class="row footer-top-29 mt-md-5 mt-4">
+                <div class="col-lg-3 col-md-6 footer-list-29 footer-1">
+                    <h6 class="footer-title-29">Address</h6>
+                    <div class="footer-listw3-grids">
+                        <ul class="footer-listw3">
+                            <li>Province no. 2, Nepal</li>
+                            <li>Ganeshman Charnath <br>Municipality -4 ,Dhanusha</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5 pe-lg-5">
+                    <h6 class="footer-title-29">Important  Links</h6>
+                    <div class="footer-listw3-grids">
+                        <ul class="footer-listw3">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                            <li><a href="{% url 'notices' %}">Notices</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5 pe-lg-5">
+                    
+                </div>
+                <div class="col-lg-4 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5 ps-lg-5">
+                    <h6 class="footer-title-29">Contact</h6>
+                    <li><a href="tel:+(21) 255 999 8888">+(21) 255 999 8888</a></li>
+                    <li><a href="mailto:Workcore@mail.com" class="mail">Workcore@mail.com</a></li>
+
+                    <div class="main-social-footer-29 mt-4">
+                        <a href="#facebook" class="facebook"><span class="fab fa-facebook-f"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fab fa-instagram"></span></a>
+
+                        <a href="#linkd" class="linkd"><span class="fab fa-linkedin-in"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-copies text-center">
+                <p class="copy-footer-29">Copyright © 2024 Shuvakamana Shaving & Credit Cooperative LTD. All rights reserved.<br>
+                    Website designed and developed by KESHAV DAHAL.<br>
+                    For inquiries, Email:keshavdahal161@icloud.com, Contact no.: 9813533999. </p>
+            </div>
+        </div>
+    </div>
+
+        <!-- Move to top button -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up"></span>
+        </button>
+
+        <!-- Script for Move to top button -->
+        <script>
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+        </script>
+        <!-- //Script for Move to top button -->
+
+    </footer>
+    <!-- //Footer -->
+
+    <!-- jQuery and Bootstrap Bundle with Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script for MENU-JS -->
+<!-- Add this script at the end of your HTML body -->
+<!-- Previous JavaScript code -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Prevent closing dropdown menu when clicking inside it
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+        dropdownMenus.forEach(function (dropdownMenu) {
+            dropdownMenu.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    });
+</script>
+
+    <!-- Template JavaScript -->
+<!-- Template JavaScript -->
+<script src="{% static 'app/assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'app/assets/js/theme-change.js' %}"></script>
+<script src="{% static 'app/assets/js/bootstrap.min.js' %} "></script>
+
+
+</body>
+
+</html>
