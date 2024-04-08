@@ -155,9 +155,13 @@ import os
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+<<<<<<< HEAD
 STATIC_URL = '/static/'
 
 # Add all directories containing static files to STATICFILES_DIRS
+=======
+STATIC_URL = 'static/'
+>>>>>>> 4e2bf9342213c4ee55ce097e8cb4fe3e98a877ea
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),  # Modify this line to point to your static files directory
     # Add more directories if necessary
@@ -174,5 +178,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
