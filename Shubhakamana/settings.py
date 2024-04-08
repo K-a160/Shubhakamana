@@ -156,11 +156,17 @@ import os
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Add all directories containing static files to STATICFILES_DIRS
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),  # Modify this line to point to your static files directory
+    # Add more directories if necessary
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / 'productionfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
